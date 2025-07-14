@@ -11,26 +11,26 @@
     <div class="bg-white p-6 rounded-lg shadow-lg w-full max-w-md">
         <h1 class="text-2xl font-bold mb-4 text-center">網格視覺化工具</h1>
         <div class="mb-4">
-            <label for="columns" class="block text-sm font-medium text-gray-700">總欄數（例如 60）：</label>
+            <label for="columns" class="block text-sm font-medium text-gray-700">經線 ( 60以上 )：</label>
             <input type="number" id="columns" value="60" min="1" class="mt-1 p-2 w-full border rounded-md" />
         </div>
         <div class="mb-4">
-            <label for="rows" class="block text-sm font-medium text-gray-700">總行數（例如 10）：</label>
+            <label for="rows" class="block text-sm font-medium text-gray-700">緯線：</label>
             <input type="number" id="rows" value="10" min="1" class="mt-1 p-2 w-full border rounded-md" />
         </div>
         <div class="mb-4">
-            <label for="sequence" class="block text-sm font-medium text-gray-700">序列（輸入 1, 2 或 3，以空格分隔）：</label>
+            <label for="sequence" class="block text-sm font-medium text-gray-700">提綜順序（輸入 1, 2 或 3，數字間需有空格）：</label>
             <input type="text" id="sequence" placeholder="1 2 3" class="mt-1 p-2 w-full border rounded-md" />
         </div>
         <div class="mb-4">
-            <label for="redColor" class="block text-sm font-medium text-gray-700">紅色格子顏色：</label>
+            <label for="redColor" class="block text-sm font-medium text-gray-700">顏色1：</label>
             <input type="color" id="redColor" value="#FF0000" class="mt-1 p-2 w-full h-10 border rounded-md" />
         </div>
         <div class="mb-4">
-            <label for="greenColor" class="block text-sm font-medium text-gray-700">綠色格子顏色：</label>
+            <label for="greenColor" class="block text-sm font-medium text-gray-700">顏色2：</label>
             <input type="color" id="greenColor" value="#00FF00" class="mt-1 p-2 w-full h-10 border rounded-md" />
         </div>
-        <button id="submit" class="w-full bg-blue-500 text-white p-2 rounded-md hover:bg-blue-600">生成網格</button>
+        <button id="submit" class="w-full bg-blue-500 text-white p-2 rounded-md hover:bg-blue-600">生成預覽圖</button>
         <p id="error" class="text-red-500 mt-2 hidden"></p>
     </div>
     <div id="canvas-container" class="mt-6"></div>
@@ -106,17 +106,17 @@
 
             // 驗證輸入
             if (isNaN(columns) || columns < 1) {
-                error.textContent = '請輸入有效的列數。';
+                error.textContent = '請輸入有效的經線數量。';
                 error.classList.remove('hidden');
                 return;
             }
             if (isNaN(rows) || rows < 1) {
-                error.textContent = '請輸入有效的行數。';
+                error.textContent = '請輸入有效的緯線數量。';
                 error.classList.remove('hidden');
                 return;
             }
             if (!sequenceInput.every(num => [1, 2, 3].includes(num))) {
-                error.textContent = '序列只能包含 1, 2 或 3。';
+                error.textContent = '提綜只能包含 1, 2 或 3。';
                 error.classList.remove('hidden');
                 return;
             }
