@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>格子可視化工具</title>
+    <title>織布模擬器</title>
     <style>
         table {
             border-collapse: collapse;
@@ -24,19 +24,19 @@
     </style>
 </head>
 <body>
-    <h1>格子可視化工具</h1>
+    <h1>織布模擬器</h1>
     <form id="gridForm">
-        <label>總欄數（例如 60）:</label>
+        <label>經線數量:</label>
         <input type="number" id="columns" value="60" min="1">
-        <label>總行數（例如 10）:</label>
+        <label>緯線數量:</label>
         <input type="number" id="rows" value="10" min="1">
-        <label>序列（1, 2, 3，用空格分隔）:</label>
+        <label>提綜順序（1 2 3，數字間用空格分隔）:</label>
         <input type="text" id="sequence" value="1 2 3">
-        <label>紅色格子顏色:</label>
+        <label>顏色一:</label>
         <input type="color" id="redColor" value="#FF0000">
-        <label>綠色格子顏色:</label>
+        <label>顏色二:</label>
         <input type="color" id="greenColor" value="#00FF00">
-        <button type="button" onclick="generateGrid()">生成格子</button>
+        <button type="button" onclick="generateGrid()">生成預覽圖</button>
     </form>
     <div id="gridContainer"></div>
 
